@@ -2,6 +2,7 @@
 :root {
   --black-color: rgb(0, 0, 0);
   --red-color: rgb(255, 0, 0);
+  --shadow-color: rgba(0, 0, 0, 0.15);
 }
 
 * {
@@ -10,30 +11,38 @@
   box-sizing: border-box; /* Ensures border and padding do not affect element width/height */
 }
 
-html, body {
+/* Base font size adjustment for easier rem calculation */
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
+/* Full viewport height for body */
+body {
+  font-size: 1.6rem;
   height: 100vh;
 }
 
-html {
-  font-size: 62.5%; /* 1rem = 10px for easier rem calculation */
-}
-
-body {
-  font-size: 1.6rem;
+/* Main wrapper for centering the clock */
+main {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
 .clock {
   position: relative;
   border: 4.5px solid var(--black-color);
   width: 50%;
+  max-width: 280px;
   height: 50%;
+  max-height: 280px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 10px 10px var(--shadow-color);
 }
 
 .clock-number {
@@ -42,90 +51,45 @@ body {
   font-weight: bold;
 }
 
-#number-1 {
-  top: 10%;
-  right: 26%;
-}
+/* Positioning for each clock number (hours) */
+#number-1 { top: 10%; right: 26%; }
+#number-2 { top: 26%; right: 12%; }
+#number-3 { top: 46%; right: 6%; }
+#number-4 { bottom: 26%; right: 12%; }
+#number-5 { bottom: 10%; right: 26%; }
+#number-6 { bottom: 3%; right: 48.2%; }
+#number-7 { bottom: 10%; left: 26%; }
+#number-8 { bottom: 26%; left: 12%; }
+#number-9 { top: 46%; left: 6%; }
+#number-10 { top: 26%; left: 11%; }
+#number-11 { top: 10%; left: 25%; }
+#number-12 { top: 3%; left: 46%; }
 
-#number-2 {
-  top: 26%;
-  right: 12%;
-}
-
-#number-3 {
-  top: 46%;
-  right: 6%;
-}
-
-#number-4 {
-  bottom: 26%;
-  right: 12%;
-}
-
-#number-5 {
-  bottom: 10%;
-  right: 26%;
-}
-
-#number-6 {
-  bottom: 3%;
-  right: 47%;
-}
-
-#number-7 {
-  bottom: 10%;
-  left: 26%;
-}
-
-#number-8 {
-  bottom: 26%;
-  left: 12%;
-}
-
-#number-9 {
-  top: 46%;
-  left: 6%;
-  transform: translateX(-6%);
-}
-
-#number-10 {
-  top: 26%;
-  left: 11%;
-}
-
-#number-11 {
-  top: 10%;
-  left: 25%;
-}
-
-#number-12 {
-  top: 3%;
-  left: 47%;
-}
-
-.hours-hand {
+/* General styling for the clock hands */
+.hours-hand, .minutes-hand, .seconds-hand {
   position: absolute;
-  border: 1px solid var(--black-color);
+  transform-origin: 100%;
+  transition: transform 0.05s cubic-bezier(0.1, 2.7, 0.58, 1);
+  right: 50%; /* ensures alignment */
+}
+
+/* Specific styles for each clock hand */
+.hours-hand {
   background-color: var(--black-color);
   height: 5.5px;
   width: 22.5%;
-  left: 50%;
   z-index: 1;
 }
 
 .minutes-hand {
-  position: absolute;
-  border: 1px solid var(--black-color);
   background-color: var(--black-color);
   height: 4px;
   width: 45%;
-  right: 50%;
 }
 
 .seconds-hand {
-  position: absolute;
-  border: 1px solid var(--red-color);
+  background-color: var(--red-color);
+  height: 2px;
   width: 45%;
-  left: 50%;
   z-index: 2;
 }
