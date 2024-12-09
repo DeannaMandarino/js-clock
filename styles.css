@@ -18,17 +18,22 @@ html {
 
 /* Full viewport height for body */
 body {
-  background-image: url('images/cars-time-lapse.webp');
-  background-size: cover;
-  background-position: bottom;
-  background-repeat: no-repeat;
   font-size: 1.6rem;
   height: 100vh;
+  background-color: black;
+}
+
+.background__image {
+  display: none;
 }
 
 /* Main wrapper for centering the clock */
 main {
   height: 100%;
+  background-image: url('images/cars-time-lapse.webp');
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
 }
 
 .clock__container {
@@ -42,8 +47,8 @@ main {
 .clock__face {
   position: relative;
   border: min(1.3vw, 1.3vh) solid var(--black-color);
-  width: min(60vw, 60vh);
-  height: min(60vw, 60vh);
+  width: min(50vw, 50vh);
+  height: min(50vw, 50vh);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -105,4 +110,25 @@ main {
   height: min(0.4vw, 0.4vh);
   width: 45%;
   z-index: 2;
+}
+
+@media (min-width: 850px) {
+  main {
+    background-size: 700px 100vh;
+  }
+
+  .background__image {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-image: url('images/cars-time-lapse.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(15px);
+    z-index: -1;
+  }
 }
