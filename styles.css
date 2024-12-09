@@ -18,6 +18,10 @@ html {
 
 /* Full viewport height for body */
 body {
+  background-image: url('/background/cars-time-lapse.webp');
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
   font-size: 1.6rem;
   height: 100vh;
 }
@@ -38,13 +42,14 @@ main {
 .clock__face {
   position: relative;
   border: min(1.3vw, 1.3vh) solid var(--black-color);
-  width: min(70vw, 70vh);
-  height: min(70vw, 70vh);
+  width: min(60vw, 60vh);
+  height: min(60vw, 60vh);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: 0 10px 10px var(--shadow-color);
+  background-color: rgb(236, 234, 222);
 }
 
 .clock__numbers {
