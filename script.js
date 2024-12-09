@@ -1,3 +1,7 @@
+const secondHand = document.querySelector('.clock__hand--seconds');
+const minuteHand = document.querySelector('.clock__hand--minutes');
+const hourHand = document.querySelector('.clock__hand--hours');
+
 function setTime() {
   const now = new Date();
 
@@ -10,6 +14,11 @@ function setTime() {
   const secondsDegrees = ((seconds / 60) * 360) + 90;
   const minutesDegrees = ((minutes / 60) * 360) + 90 + (seconds / 60) * 6; //ensures the minute hand moves smoothly as the seconds pass
   const hoursDegrees = ((hours % 12) / 12) * 360 + 90 + (minutes / 60) * 30; //ensures the hour hand moves gradually as minutes pass
+
+  // Apply the rotations to the clock hands
+  secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+  minuteHand.style.transform = `rotate(${minutesDegrees}deg)`;
+  hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
 }
 
 // Update the clock every 1000ms (1 second)
