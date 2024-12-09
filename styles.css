@@ -24,6 +24,10 @@ body {
 
 /* Main wrapper for centering the clock */
 main {
+  height: 100%;
+}
+
+.clock__container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,13 +35,11 @@ main {
   width: 100%;
 }
 
-.clock {
+.clock__face {
   position: relative;
-  border: 4.5px solid var(--black-color);
-  width: 50%;
-  max-width: 280px;
-  height: 50%;
-  max-height: 280px;
+  border: min(1.3vw, 1.3vh) solid var(--black-color);
+  width: min(70vw, 70vh);
+  height: min(70vw, 70vh);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -45,28 +47,34 @@ main {
   box-shadow: 0 10px 10px var(--shadow-color);
 }
 
-.clock-number {
+.clock__numbers {
   position: absolute;
-  font-size: 2rem;
+  width: 100%;
+  height: 100%;
+}
+
+.clock__number {
+  position: absolute;
+  font-size: min(5vw, 5vh); /*1.6rem*/
   font-weight: bold;
 }
 
 /* Positioning for each clock number (hours) */
-#number-1 { top: 10%; right: 26%; }
-#number-2 { top: 26%; right: 12%; }
-#number-3 { top: 46%; right: 6%; }
-#number-4 { bottom: 26%; right: 12%; }
-#number-5 { bottom: 10%; right: 26%; }
-#number-6 { bottom: 3%; right: 48.2%; }
-#number-7 { bottom: 10%; left: 26%; }
-#number-8 { bottom: 26%; left: 12%; }
-#number-9 { top: 46%; left: 6%; }
-#number-10 { top: 26%; left: 11%; }
-#number-11 { top: 10%; left: 25%; }
-#number-12 { top: 3%; left: 46%; }
+.clock__number--1 { top: 10%; right: 26%; }
+.clock__number--2 { top: 26%; right: 12%; }
+.clock__number--3 { top: 46%; right: 6%; }
+.clock__number--4 { bottom: 26%; right: 12%; }
+.clock__number--5 { bottom: 10%; right: 26%; }
+.clock__number--6 { bottom: 3%; right: 48.2%; }
+.clock__number--7 { bottom: 10%; left: 26%; }
+.clock__number--8 { bottom: 26%; left: 12%; }
+.clock__number--9 { top: 46%; left: 6%; }
+.clock__number--10 { top: 26%; left: 11%; }
+.clock__number--11 { top: 10%; left: 25%; }
+.clock__number--12 { top: 3%; left: 46%; }
 
 /* General styling for the clock hands */
-.hours-hand, .minutes-hand, .seconds-hand {
+.clock__hand--hours, .clock__hand--minutes, .clock__hand--seconds {
   position: absolute;
   transform-origin: 100%;
   transition: transform 0.05s cubic-bezier(0.1, 2.7, 0.58, 1);
@@ -74,22 +82,22 @@ main {
 }
 
 /* Specific styles for each clock hand */
-.hours-hand {
+.clock__hand--hours {
   background-color: var(--black-color);
-  height: 5.5px;
+  height: min(1.3vw, 1.3vh);
   width: 22.5%;
   z-index: 1;
 }
 
-.minutes-hand {
+.clock__hand--minutes {
   background-color: var(--black-color);
-  height: 4px;
+  height: min(1vw, 1vh);
   width: 45%;
 }
 
-.seconds-hand {
+.clock__hand--seconds {
   background-color: var(--red-color);
-  height: 2px;
+  height: min(0.4vw, 0.4vh);
   width: 45%;
   z-index: 2;
 }
