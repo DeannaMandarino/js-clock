@@ -2,6 +2,8 @@ const secondHand = document.querySelector('.clock__hand--seconds');
 const minuteHand = document.querySelector('.clock__hand--minutes');
 const hourHand = document.querySelector('.clock__hand--hours');
 
+let lastSecond = 0; // Keep track of the last second to avoid the jump
+
 function setTime() {
   const now = new Date();
 
@@ -19,6 +21,17 @@ function setTime() {
   secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
   minuteHand.style.transform = `rotate(${minutesDegrees}deg)`;
   hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
+
+  // Fix the jump for the seconds hand
+  if (seconds === 0 && lastSecond !== 0) {
+    // Reset the second hand rotation to avoid the jump when it reaches 0
+    secondHand.style.transition = 'none';
+    setTimeout(() => {
+      secondHand.style.transition = 'transform 0.05s cubic-bezier(0.1, 2.7, 0.58, 1)';
+    }, 50); // Delay re-enabling the transition slightly
+  }
+  
+  lastSecond = seconds;
 }
 
 // Update the clock every 1000ms (1 second)
