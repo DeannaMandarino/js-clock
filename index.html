@@ -4,7 +4,7 @@
   <!-- Meta tags for accessibility and SEO -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A dynamic, updating clock with rotating hands.">
+  <meta name="description" content="A dynamic clock that updates in real-time with rotating hands.">
   <meta name="author" content="Deanna Mandarino">
 
   <!-- Favicon for the page -->
@@ -18,26 +18,32 @@
 </head>
 <body>
   <main>
-    <div class="clock">
-      <!-- Clock numbers representing the 12 hours -->
-      <div id="number-1" class="clock-number">1</div>
-      <div id="number-2" class="clock-number">2</div>
-      <div id="number-3" class="clock-number">3</div>
-      <div id="number-4" class="clock-number">4</div>
-      <div id="number-5" class="clock-number">5</div>
-      <div id="number-6" class="clock-number">6</div>
-      <div id="number-7" class="clock-number">7</div>
-      <div id="number-8" class="clock-number">8</div>
-      <div id="number-9" class="clock-number">9</div>
-      <div id="number-10" class="clock-number">10</div>
-      <div id="number-11" class="clock-number">11</div>
-      <div id="number-12" class="clock-number">12</div>
-  
-      <!-- Clock hands for hours, minutes, and seconds -->
-      <div class="hours-hand"></div>
-      <div class="minutes-hand"></div>
-      <div class="seconds-hand"></div>
-    </div>
+    <section class="clock__container">
+      <div class="clock__face">
+        <!-- Clock numbers representing the 12 hours -->
+        <div class="clock__numbers">
+          <div class="clock__number clock__number--1">1</div>
+          <div class="clock__number clock__number--2">2</div>
+          <div class="clock__number clock__number--3">3</div>
+          <div class="clock__number clock__number--4">4</div>
+          <div class="clock__number clock__number--5">5</div>
+          <div class="clock__number clock__number--6">6</div>
+          <div class="clock__number clock__number--7">7</div>
+          <div class="clock__number clock__number--8">8</div>
+          <div class="clock__number clock__number--9">9</div>
+          <div class="clock__number clock__number--10">10</div>
+          <div class="clock__number clock__number--11">11</div>
+          <div class="clock__number clock__number--12">12</div>
+        </div>
+    
+        <!-- Clock hands for hours, minutes, and seconds -->
+        <div class="clock__hands">
+          <div class="clock__hand clock__hand--hours" aria-label="Hour hand"></div>
+          <div class="clock__hand clock__hand--minutes" aria-label="Minute hand"></div>
+          <div class="clock__hand clock__hand--seconds" aria-label="Second hand"></div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- External JavaScript file linked with defer to improve page load -->
