@@ -26,7 +26,7 @@ This project provides a real-time clock with rotating hands that update every se
 
 1. Clone the repository to your local machine.
 2. Open `index.html` in your web browser.
-3. Alternatively, you can view the live project on GitHub Pages: [Real-Time Clock on GitHub Pages](https://deannamandarino.github.io/js-clock/).
+3. Alternatively, you can view the live project on GitHub Pages: [Real-Time Clock on GitHub Pages](https://deannamandarino.github.io/real-time-clock/).
 
 ## Acknowledgments
 
