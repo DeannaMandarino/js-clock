@@ -2,7 +2,8 @@
 :root {
   --black-color: rgb(0, 0, 0);
   --red-color: rgb(255, 0, 0);
-  --shadow-color: rgba(0, 0, 0, 0.15);
+  --shadow-color: rgba(0, 0, 0, 0.35);
+  --clock-face-color: rgb(236, 234, 222);
 }
 
 * {
@@ -20,7 +21,7 @@ html {
 body {
   font-size: 1.6rem;
   height: 100vh;
-  background-color: black;
+  background-color: var(--black-color);
 }
 
 .background__image {
@@ -53,8 +54,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 10px 10px var(--shadow-color);
-  background-color: rgb(236, 234, 222);
+  background-color: var(--clock-face-color);
 }
 
 .clock__numbers {
@@ -89,6 +89,7 @@ main {
   transform-origin: 100%;
   transition: transform 0.05s cubic-bezier(0.1, 2.7, 0.58, 1);
   right: 50%; /* ensures alignment */
+  filter: drop-shadow(0 0 0.45rem var(--shadow-color));
 }
 
 /* Specific styles for each clock hand */
@@ -114,7 +115,7 @@ main {
 
 @media (min-width: 850px) {
   main {
-    background-size: 700px 100vh;
+    background-size: 70rem 100vh;
   }
 
   .background__image {
@@ -128,7 +129,7 @@ main {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    filter: blur(15px);
+    filter: blur(1.5rem);
     z-index: -1;
   }
 }
